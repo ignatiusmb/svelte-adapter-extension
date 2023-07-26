@@ -1,0 +1,6 @@
+{
+	"extends": "mauss/tsconfig.json",
+	"compilerOptions": {
+		"declaration": true
+	}
+}

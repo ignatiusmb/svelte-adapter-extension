@@ -1,0 +1,33 @@
+{
+  "name": "svelte-adapter-extension",
+  "version": "0.0.1",
+  "description": "Adapter for SvelteKit apps to build browser extension",
+  "repository": "github:ignatiusmb/svelte-adapter-extension",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc --watch",
+    "format": "prettier --write .",
+    "check": "prettier --check .",
+    "prepublishOnly": "tsc"
+  },
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "packageManager": "pnpm@8.6.10",
+  "prettier": "mauss/prettier.json",
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.21.0"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "^1.22.3",
+    "@types/node": "^20.4.5",
+    "mauss": "^0.5.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6"
+  }
+}
