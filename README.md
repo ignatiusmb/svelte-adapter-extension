@@ -54,18 +54,18 @@ Prepare your `manifest.json`, you can copy the defaults below:
 
 ```json
 {
-	"manifest_version": 3,
-	"name": "TODO",
-	"version": "0.1",
-	"icons": {
-		"16": "icons/16.png",
-		"48": "icons/48.png",
-		"128": "icons/128.png"
-	},
-	"action": {
-		"default_title": "SvelteKit Extension",
-		"default_popup": "index.html"
-	}
+  "manifest_version": 3,
+  "name": "TODO",
+  "version": "0.1",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "SvelteKit Extension",
+    "default_popup": "index.html"
+  }
 }
 ```
 
@@ -77,7 +77,7 @@ After enabling "Developer mode" on your browser of choice and pointing the "Load
   ...
   "scripts": {
 +    "watch": "vite build --watch",	
-	...
+    ...
 
   }
   ...
