@@ -47,8 +47,8 @@ export default function ({
 						)}`;
 						const file = pathname.slice(pages.length + 1, -'.html'.length);
 						fs.writeFileSync(join(assets, `./${file}.js`), content);
-						return `<script src="./${file}.js"></script>`;
-					}
+						return `<script src="./${file.replace(/\\/g, '/')}.js"></script>`;
+					},
 				);
 				fs.writeFileSync(pathname, externalized);
 			});
