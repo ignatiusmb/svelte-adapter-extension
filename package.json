@@ -6,14 +6,12 @@
   "type": "module",
   "scripts": {
     "watch": "tsc --watch",
-    "format": "prettier --write .",
-    "check": "prettier --check .",
+    "format": "prettier -w . --plugin=prettier-plugin-sort-package-json",
+    "check": "prettier -c . --plugin=prettier-plugin-sort-package-json",
     "prepublishOnly": "tsc"
   },
   "types": "./index.d.ts",
-  "exports": {
-    ".": "./index.js"
-  },
+  "exports": "./index.js",
   "files": [
     "index.js",
     "index.d.ts"
@@ -24,10 +22,11 @@
     "@sveltejs/kit": "^1.21.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^1.22.3",
+    "@sveltejs/kit": "^1.22.4",
     "@types/node": "^20.4.5",
-    "mauss": "^0.5.0",
-    "prettier": "^2.8.8",
+    "mauss": "^0.6.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-sort-package-json": "^0.1.0",
     "typescript": "^5.1.6"
   }
 }

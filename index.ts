@@ -43,12 +43,12 @@ export default function ({
 					(_, content) => {
 						content = `window.${content.replace(
 							/document\.currentScript\.parentElement/,
-							`document.querySelector('${root}')`
+							`document.querySelector('${root}')`,
 						)}`;
 						const file = pathname.slice(pages.length + 1, -'.html'.length);
 						fs.writeFileSync(join(assets, `./${file}.js`), content);
 						return `<script src="./${file}.js"></script>`;
-					}
+					},
 				);
 				fs.writeFileSync(pathname, externalized);
 			});
