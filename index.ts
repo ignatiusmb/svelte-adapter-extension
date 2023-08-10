@@ -39,8 +39,10 @@ export default function ({
 
 				const html: string = fs.readFileSync(pathname, 'utf-8');
 				const externalized = html.replace(
-					/<script>[\n\t\r]*{[\n\t\r]*(__sveltekit[^]*)}[\n\t\r]*<\/script>/,
+					/<script>[\n\t\r]*({[\n\t\r]*__sveltekit[^]*})[\n\t\r]*<\/script>/,
 					(_, content) => {
+						content = content.split(/\r?\n/g).slice(1, -1);
+						content = outdent(content.join('\n'));
 						content = `window.${content.replace(
 							/document\.currentScript\.parentElement/,
 							`document.querySelector('${root}')`,
@@ -59,6 +61,12 @@ export default function ({
 			fs.writeFileSync(join(assets, source), JSON.stringify(manifest));
 		},
 	};
+}
+
+function outdent(input: string) {
+	const lines = input.split(/\r?\n/).filter((l) => l.trim());
+	const indent = (/^\s*/.exec(lines[0]) || [''])[0].length;
+	return lines.map((l) => l.slice(indent)).join('\n');
 }
 
 function walk(entry: string, fn: (pathname: string) => void) {
