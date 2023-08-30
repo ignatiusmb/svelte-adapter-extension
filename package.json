@@ -1,32 +1,33 @@
 {
-  "name": "svelte-adapter-extension",
-  "version": "0.1.0",
-  "description": "Adapter for SvelteKit apps to build browser extension",
-  "repository": "github:ignatiusmb/svelte-adapter-extension",
-  "type": "module",
-  "scripts": {
-    "watch": "tsc --watch",
-    "format": "prettier -w . --plugin=prettier-plugin-sort-package-json",
-    "check": "prettier -c . --plugin=prettier-plugin-sort-package-json",
-    "prepublishOnly": "tsc"
-  },
-  "types": "./index.d.ts",
-  "exports": "./index.js",
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
-  "packageManager": "pnpm@8.6.10",
-  "prettier": "mauss/prettier.json",
-  "peerDependencies": {
-    "@sveltejs/kit": "^1.21.0"
-  },
-  "devDependencies": {
-    "@sveltejs/kit": "^1.22.4",
-    "@types/node": "^20.4.5",
-    "mauss": "^0.6.0",
-    "prettier": "^3.0.0",
-    "prettier-plugin-sort-package-json": "^0.1.0",
-    "typescript": "^5.1.6"
-  }
+	"name": "svelte-adapter-extension",
+	"version": "0.1.0",
+	"description": "Adapter for SvelteKit apps to build browser extension",
+	"repository": "github:ignatiusmb/svelte-adapter-extension",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"watch": "tsc --watch",
+		"format": "prettier -w . --plugin=prettier-plugin-sort-package-json",
+		"check": "prettier -c . --plugin=prettier-plugin-sort-package-json",
+		"prepublishOnly": "tsc"
+	},
+	"types": "./index.d.ts",
+	"exports": "./index.js",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"packageManager": "pnpm@8.7.0",
+	"prettier": "mauss/prettier.json",
+	"peerDependencies": {
+		"@sveltejs/kit": "^1.21.0"
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "^1.24.0",
+		"@types/node": "^20.5.7",
+		"mauss": "^0.7.2",
+		"prettier": "^3.0.3",
+		"prettier-plugin-sort-package-json": "^0.2.0",
+		"typescript": "^5.2.2"
+	}
 }
