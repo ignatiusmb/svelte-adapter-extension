@@ -14,10 +14,17 @@ interface Options {
 	 * @default './manifest.json'
 	 */
 	source?: string;
+
+	/**
+	 * Filename for generated single-page app
+	 * @default undefined
+	 */
+	output?: '' | `${string}.html`;
 }
 export default function ({
 	root = 'body > div',
 	source = './manifest.json',
+	output = '',
 }: Options = {}): Adapter {
 	const pages = 'build';
 	const assets = pages;
@@ -32,12 +39,14 @@ export default function ({
 			builder.writeClient(assets);
 			builder.writePrerendered(pages);
 
+			const spa = join(pages, output);
+			if (output) await builder.generateFallback(spa);
+
 			// externalize inline scripts in HTML files
-			// https://github.com/sveltejs/kit/issues/1776
 			walk(pages, (pathname) => {
 				if (!pathname.endsWith('.html')) return;
 
-				const html: string = fs.readFileSync(pathname, 'utf-8');
+				const html = fs.readFileSync(pathname, 'utf-8');
 				const externalized = html.replace(
 					/<script>[\n\t\r]*({[\n\t\r]*__sveltekit[^]*})[\n\t\r]*<\/script>/,
 					(_, content) => {
@@ -47,9 +56,10 @@ export default function ({
 							/document\.currentScript\.parentElement/,
 							`document.querySelector('${root}')`,
 						)}`;
-						const file = pathname.slice(pages.length + 1, -'.html'.length);
-						fs.writeFileSync(join(assets, `./${file}.js`), content);
-						return `<script src="./${file.replace(/\\/g, '/')}.js"></script>`;
+						const file = pathname.slice(pages.length + 1, -5);
+						fs.writeFileSync(join(pages, `./${file}.js`), content);
+						const src = pathname === spa ? `/${output.slice(0, -5)}` : `./${file}`;
+						return `<script src="${src.replace(/\\/g, '/')}.js"></script>`;
 					},
 				);
 				fs.writeFileSync(pathname, externalized);
