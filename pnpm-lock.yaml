@@ -12,8 +12,8 @@ devDependencies:
     specifier: ^20.5.7
     version: 20.5.7
   mauss:
-    specifier: ^0.7.1
-    version: 0.7.1
+    specifier: ^0.7.2
+    version: 0.7.2
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
@@ -494,8 +494,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /mauss@0.7.1:
-    resolution: {integrity: sha512-ofUS5mvmZxTaqGwEx52BtAnriPYTeQ4RPuHdNa+U5CtqxdJBNYPueH0KOWJVibfCAcARNHxL8gC0CIRyNVJNaA==}
+  /mauss@0.7.2:
+    resolution: {integrity: sha512-2UJkOyBtytLsDQEejoNw6sFb/8UcCvCyWdx51C795ycMP8hrjIIgzOaLPgETeuUQ4YSgBeeqO285dW8lLnmLYw==}
     dev: true
 
   /mdn-data@2.0.30:
