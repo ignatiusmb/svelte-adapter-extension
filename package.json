@@ -17,17 +17,18 @@
 		"index.js",
 		"index.d.ts"
 	],
-	"packageManager": "pnpm@8.7.0",
+	"packageManager": "pnpm@8.14.0",
 	"prettier": "mauss/prettier.json",
 	"peerDependencies": {
-		"@sveltejs/kit": "^1.21.0"
+		"@sveltejs/kit": "^1.21.0 || ^2.0.0"
 	},
 	"devDependencies": {
-		"@sveltejs/kit": "^1.24.0",
-		"@types/node": "^20.5.7",
+		"@sveltejs/kit": "^2.2.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
+		"@types/node": "^20.10.8",
 		"mauss": "^0.7.2",
-		"prettier": "^3.0.3",
+		"prettier": "^3.1.1",
 		"prettier-plugin-sort-package-json": "^0.2.0",
-		"typescript": "^5.2.2"
+		"typescript": "^5.3.3"
 	}
 }
